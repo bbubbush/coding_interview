@@ -1,10 +1,13 @@
-import _01_ArrayAndString.Duplecate;
+import _01_ArrayAndString.ArrayAndString;
 
 public class Main {
 
     public static void main(String[] args) {
-        Duplecate d = new Duplecate();
-        System.out.println(d.solution("abc 123"));
+        ArrayAndString arrayAndString = new ArrayAndString();
+
+//        System.out.println(arrayAndString.solution01("abc 123")); // 중복된 문자가 있는지 확인
+        System.out.println(arrayAndString.solution03("Mr John Smith")); // URL 공백 파싱
+
 
 
     }
