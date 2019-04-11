@@ -1,6 +1,12 @@
 package _01_ArrayAndString;
 
+import javax.swing.text.html.Option;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class ArrayAndString {
     /*******************************************
@@ -43,14 +49,30 @@ public class ArrayAndString {
     /*******************************************
      * 4. 주어진 문자열이 회문순열인지 확인
      *******************************************/
-    public static String solution04 (String str) {
-        boolean isOdd = false;
+    public static boolean solution04 (String str) {
+        int oddNumberCount = 2;
         if (str.length() % 2 != 0) {
-            isOdd = true;   // 홀수
+            oddNumberCount = 1;   // 홀수
+        }
+        HashMap<Character, Integer> charMap = new HashMap<>();
+
+        // Map에 캐릭터 입력 횟수 입력
+        for (char ch : str.toLowerCase().toCharArray()) {
+            int value = Optional.ofNullable(charMap.get(ch)).orElse(0);
+            charMap.put(ch, ++value);
+        }
+        // 홀수 인 캐릭터의 갯수를 확인
+        for (char key :charMap.keySet()) {
+            if (charMap.get(key) % 2 != 0) {
+                oddNumberCount--;
+            }
+
+            if (oddNumberCount < 0) {
+                return false;
+            }
         }
 
-
-        return str.replaceAll(Pattern.quote(" "), "%20");
+        return true;
     }
 
 
