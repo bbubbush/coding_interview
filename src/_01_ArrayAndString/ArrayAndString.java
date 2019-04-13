@@ -33,8 +33,7 @@ public class ArrayAndString {
         if (first.length() != second.length()) {
             return false;
         }
-
-
+        
 
         return true;
     }
