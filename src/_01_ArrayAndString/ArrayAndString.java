@@ -1,10 +1,7 @@
 package _01_ArrayAndString;
 
 import javax.swing.text.html.Option;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -28,14 +25,25 @@ public class ArrayAndString {
 
     /*******************************************
      * 2. 문자열 두 개가 주어졌을 때 이 둘이 순열관계인지 확인
+     *
+     * >> 두 문자열의 순열관계인 경우, 정렬을 하면 같은 문자가 되어야 한다.
      *******************************************/
     public static boolean solution02 (String first, String second) {
-        if (first.length() != second.length()) {
-            return false;
-        }
-        
+        // 1. 문자열을 정렬하여 비교
+//        if (first.length() != second.length()) {
+//            return false;
+//        }
+//        return sortToString(first).equals(sortToString(second));
 
-        return true;
+        // 2. 각 캐릭터 별 갯수를 새서 확인
+
+        return false;
+    }
+    // 입력된 문자열을 정렬하여 return
+    public static String sortToString(String str) {
+        byte[] byteArray = str.getBytes();
+        Arrays.sort(byteArray);
+        return new String(byteArray);
     }
 
     /*******************************************
@@ -72,6 +80,23 @@ public class ArrayAndString {
         }
 
         return true;
+    }
+    /*******************************************
+     * 6. 문자열 압축하기
+     *******************************************/
+    public static String solution06 (String str) {
+        int countOfDuplecate = 1;
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i + 1 < str.length() && str.charAt(i) == str.charAt( i + 1)) {
+                countOfDuplecate++;
+            } else {
+                result += str.charAt(i) + (countOfDuplecate + "");
+                countOfDuplecate = 1;
+            }
+        }
+
+        return result;
     }
 
 
