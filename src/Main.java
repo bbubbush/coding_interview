@@ -11,6 +11,7 @@ public class Main {
 //        System.out.println(arrayAndString.solution04("abddba")); // URL 공백 파싱
         System.out.println(arrayAndString.solution06("aabbcc")); // 문자열 압축하기
 
+        
 
 
     }
