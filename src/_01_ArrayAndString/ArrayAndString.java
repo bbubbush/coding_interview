@@ -1,9 +1,9 @@
 package _01_ArrayAndString;
 
-import javax.swing.text.html.Option;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Optional;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class ArrayAndString {
     /*******************************************
@@ -26,7 +26,7 @@ public class ArrayAndString {
     /*******************************************
      * 2. 문자열 두 개가 주어졌을 때 이 둘이 순열관계인지 확인
      *
-     * >> 두 문자열의 순열관계인 경우, 정렬을 하면 같은 문자가 되어야 한다.
+     * >> 두 문자열의 순열관계인 경우, 정렬을 하면 동일한 문자를 갖는다
      *******************************************/
     public static boolean solution02 (String first, String second) {
         // 1. 문자열을 정렬하여 비교
@@ -36,9 +36,29 @@ public class ArrayAndString {
 //        return sortToString(first).equals(sortToString(second));
 
         // 2. 각 캐릭터 별 갯수를 새서 확인
+        if (first.length() != second.length()) {
+            return false;
+        }
 
+        int[] letters = new int[128];       // 아스키코드로 가정
+        char[] first_array = first.toCharArray();
+
+        // first 각 문자의 반복횟수를 샌다
+        for (char c: first_array) {
+            letters[c]++;
+        }
+
+        // second의 문자를 하나하나 뺀다
+        for (int i = 0; i < second.length(); i++) {
+            int c= (int)second.charAt(i);
+            letters[c]--;
+            if (letters[0] < 0) {
+                return false;
+            }
+        }
         return false;
     }
+
     // 입력된 문자열을 정렬하여 return
     public static String sortToString(String str) {
         byte[] byteArray = str.getBytes();
