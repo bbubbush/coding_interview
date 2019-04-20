@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-public class ArrayAndString {
+public class ArrayAndString { 
     /*******************************************
      * 1. 문자열이 주어졌을때 중복된 문자가 없는지 확인
      *******************************************/
