@@ -115,9 +115,51 @@ public class ArrayAndString {
                 countOfDuplecate = 1;
             }
         }
-
         return result;
     }
+    /*******************************************
+     * 7. 행렬 회전
+     *******************************************/
+    public static boolean solution07 (int[][] matrix) {
+        if (matrix.length == 0 || matrix.length != matrix[0].length) {
+            return false;
+        }
+        System.out.println("Before :: ");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
 
+        int n = matrix.length;
+        for (int layer = 0; layer < n /2; layer++) {
+            int first = layer;
+            int last = n - layer - 1;
+            for (int i = first; i < last; i++) {
+                int offset = i - first;
+                int top = matrix[first][i]; // 윗 부분을 저장
+
+                // 왼쪽 -> 위쪽
+                matrix[first][i] = matrix[last - offset][first];
+                // 아래쪽 -> 왼쪽
+                matrix[last - offset][first] = matrix[last][last - offset];
+                // 오른쪽 -> 아래쪽
+                matrix[last][last - offset] = matrix[i][last];
+                // 위쪽 -> 오른쪽
+                matrix[i][last] = top;
+            }
+
+        }
+
+        System.out.println("After :: ");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        return true;
+    }
 
 }// End of ArrayAndString class
