@@ -131,9 +131,10 @@ public class ArrayAndString {
             }
             System.out.println();
         }
+        System.out.println();
 
         int n = matrix.length;
-        for (int layer = 0; layer < n /2; layer++) {
+        for (int layer = 0; layer < n / 2; layer++) {
             int first = layer;
             int last = n - layer - 1;
             for (int i = first; i < last; i++) {
@@ -150,6 +151,13 @@ public class ArrayAndString {
                 matrix[i][last] = top;
             }
 
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    System.out.print(matrix[i][j] + "\t");
+                }
+                System.out.println();
+            }
+            System.out.println();
         }
 
         System.out.println("After :: ");
@@ -161,5 +169,11 @@ public class ArrayAndString {
         }
         return true;
     }
-
+    /*******************************************
+     * 8. 0 행렬
+     *******************************************/
+    public static boolean solution08 (int[][] matrix) {
+        
+        return true;
+    }
 }// End of ArrayAndString class
