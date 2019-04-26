@@ -173,7 +173,7 @@ public class ArrayAndString {
      * 8. 0 행렬
      *******************************************/
     public static boolean solution08 (int[][] matrix) {
-        
+
         return true;
     }
 }// End of ArrayAndString class
